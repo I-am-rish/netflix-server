@@ -12,10 +12,7 @@ app.use(express.json());
 const DB =
   "mongodb+srv://netflix:netflix321@cluster0.sc1dvgn.mongodb.net/netflix-app?retryWrites=true&w=majority";
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(DB)
   .then(() => {
     console.log("mongodb connected");
   }).catch(()=> {
