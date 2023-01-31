@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/UserRoutes");
 const app = express();
 
-mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", true);
 
 app.use(cors());
 app.use(express.json());
@@ -18,9 +18,10 @@ mongoose
   })
   .then(() => {
     console.log("mongodb connected");
-  }).catch(()=> {
-    console.log('mongodb not connected');
   })
+  .catch(() => {
+    console.log("mongodb not connected");
+  });
 
 app.use("/api/user", userRoutes);
 
